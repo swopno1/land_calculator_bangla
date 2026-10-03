@@ -1,0 +1,1 @@
+Land measurement calculator for BD: Decimal, Katha, Bigha & Acre. Offline.

@@ -1,0 +1,36 @@
+<resources>
+    <string name="app_name">জমির হিসাব</string>
+    <string name="app_name_en">Land Calculator BD</string>
+    <string name="app_subtitle">Simple land measurement calculator for Bangladesh</string>
+    <string name="input_label">Land Area / Quantity</string>
+    <string name="input_hint">e.g. 10.5</string>
+    <string name="select_unit">Select Unit</string>
+    <string name="conversion_results">Conversion Results</string>
+    <string name="quick_units">Quick Units</string>
+    <string name="clear">Clear</string>
+    <string name="copy">Copy</string>
+    <string name="copied">Copied to clipboard</string>
+    <string name="copy_all">Copy All</string>
+    <string name="share">Share</string>
+    <string name="about_and_rules">Measurement Standards</string>
+    <string name="disclaimer_title">Notice &amp; Disclaimer</string>
+    <string name="disclaimer_text">Traditional units like Katha and Bigha may vary by region (e.g. 33, 40, or 50 decimals per Bigha). This app uses the standard Bangladesh government survey standard (1 Bigha = 20 Katha = 14,400 sq ft ≈ 33.06 decimals). Always verify with official land records or a licensed surveyor for legal transactions.</string>
+    <string name="developer_name">ViveScript Solutions</string>
+    <string name="developer_url">https://www.vivescriptsolutions.com/</string>
+    <string name="version_label">Version 1.0.0</string>
+    <string name="offline_badge">100% Offline &amp; Free</string>
+    <string name="invalid_number">Please enter a valid number</string>
+    <string name="number_format">Numeral Format</string>
+    <string name="bangla_digits">Bengali (১, ২, ৩)</string>
+    <string name="english_digits">English (1, 2, 3)</string>
+    <string name="unit_decimal">Decimal / Shotangsho</string>
+    <string name="unit_katha">Katha</string>
+    <string name="unit_bigha">Bigha</string>
+    <string name="unit_acre">Acre</string>
+    <string name="unit_sqft">Square Feet</string>
+    <string name="unit_sqm">Square Meter</string>
+    <string name="unit_sqyard">Square Yard</string>
+    <string name="unit_hectare">Hectare</string>
+    <string name="unit_chattak">Chattak</string>
+    <string name="unit_ganda">Ganda</string>
+</resources>

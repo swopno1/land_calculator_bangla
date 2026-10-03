@@ -1,0 +1,36 @@
+<resources>
+    <string name="app_name">জমির হিসাব</string>
+    <string name="app_name_en">Land Calculator BD</string>
+    <string name="app_subtitle">বাংলাদেশের জমির মাপের সহজ হিসাব</string>
+    <string name="input_label">জমির পরিমাণ লিখুন</string>
+    <string name="input_hint">যেমন: ১০.৫</string>
+    <string name="select_unit">একক নির্বাচন করুন</string>
+    <string name="conversion_results">রূপান্তরিত ফলাফল</string>
+    <string name="quick_units">জনপ্রিয় একক</string>
+    <string name="clear">মুছুন</string>
+    <string name="copy">কপি</string>
+    <string name="copied">ক্লিপবোর্ডে কপি করা হয়েছে</string>
+    <string name="copy_all">সব কপি করুন</string>
+    <string name="share">শেয়ার</string>
+    <string name="about_and_rules">জমির প্রচলিত মাপের নিয়ম</string>
+    <string name="disclaimer_title">সতর্কতা ও তথ্যের মানদণ্ড</string>
+    <string name="disclaimer_text">কাঠা ও বিঘার প্রচলিত মাপ অঞ্চলভেদে ভিন্ন হতে পারে (যেমন কিছু অঞ্চলে ৩৩, ৪০ বা ৫০ শতাংশে বিঘা ধরা হয়)। এই অ্যাপে বাংলাদেশে সরকারিভাবে সর্বাধিক স্বীকৃত প্রমিত হিসাব (১ বিঘা = ২০ কাঠা = ১৪,৪০০ বর্গফুট = ৩৩.০৬ শতাংশ) ব্যবহার করা হয়েছে। জমি ক্রয়-বিক্রয়, রেজিস্ট্রি বা আইনি প্রয়োজনে সবসময় সরকারি ভূমি জরিপ বা রেজিস্ট্রি দলিলের তথ্য নিশ্চিত করুন।</string>
+    <string name="developer_name">ViveScript Solutions</string>
+    <string name="developer_url">https://www.vivescriptsolutions.com/</string>
+    <string name="version_label">সংস্করণ ১.০.০</string>
+    <string name="offline_badge">১০০% অফলাইন ও সম্পূর্ণ ফ্রি</string>
+    <string name="invalid_number">সঠিক সংখ্যা লিখুন</string>
+    <string name="number_format">সংখ্যার ধরণ</string>
+    <string name="bangla_digits">বাংলা সংখ্যা (১, ২, ৩)</string>
+    <string name="english_digits">ইংরেজি সংখ্যা (1, 2, 3)</string>
+    <string name="unit_decimal">শতাংশ / শতক</string>
+    <string name="unit_katha">কাঠা</string>
+    <string name="unit_bigha">বিঘা</string>
+    <string name="unit_acre">একর</string>
+    <string name="unit_sqft">বর্গফুট</string>
+    <string name="unit_sqm">বর্গমিটার</string>
+    <string name="unit_sqyard">বর্গগজ</string>
+    <string name="unit_hectare">হেক্টর</string>
+    <string name="unit_chattak">ছটাক</string>
+    <string name="unit_ganda">গণ্ডা</string>
+</resources>

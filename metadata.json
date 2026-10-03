@@ -1,0 +1,6 @@
+{
+  "name": "জমির হিসাব",
+  "description": "বাংলাদেশের জমির মাপের সহজ হিসাব ও রূপান্তর (Land Calculator BD) - শতাংশ, কাঠা, বিঘা, একর, বর্গফুট, বর্গমিটার। সম্পূর্ণ অফলাইন।",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
