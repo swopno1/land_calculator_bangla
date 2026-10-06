@@ -11,6 +11,10 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
+
+        // Initialize Google Mobile Ads SDK with test ads
+        com.vivescriptsolutions.jomirhisab.ads.AdManager.initialize(this)
+
         setContent {
             JomirHisabTheme {
                 JomirHisabScreen()

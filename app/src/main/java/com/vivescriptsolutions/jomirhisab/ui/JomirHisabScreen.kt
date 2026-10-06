@@ -81,6 +81,7 @@ import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.vivescriptsolutions.jomirhisab.ads.AdMobBannerView
 import com.vivescriptsolutions.jomirhisab.engine.LandConversionEngine
 import com.vivescriptsolutions.jomirhisab.model.ConversionResult
 import com.vivescriptsolutions.jomirhisab.model.LandUnit
@@ -209,6 +210,9 @@ fun JomirHisabScreen() {
                     containerColor = MaterialTheme.colorScheme.surface
                 )
             )
+        },
+        bottomBar = {
+            AdMobBannerView()
         }
     ) { innerPadding ->
         Column(
@@ -243,9 +247,9 @@ fun JomirHisabScreen() {
                         Spacer(modifier = Modifier.width(8.dp))
                         Text(
                             text = if (isBengali)
-                                "১০০% অফলাইন • ইন্টারনেট ছাড়াই সম্পূর্ণ চালু"
+                                "অফলাইন গণক • জমি পরিমাপ ও রূপান্তর"
                             else
-                                "100% Offline • Works completely without internet",
+                                "Offline Engine • Land Measurement & Conversion",
                             style = MaterialTheme.typography.labelSmall,
                             fontWeight = FontWeight.Medium,
                             color = MaterialTheme.colorScheme.onPrimaryContainer

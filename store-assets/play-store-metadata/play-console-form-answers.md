@@ -19,8 +19,8 @@
 
 ## ২. Ads (বিজ্ঞাপন সংক্রান্ত ঘোষণা)
 * **প্রশ্ন:** Does your app contain ads?
-* **উত্তর:** **No, my app does not contain ads**
-* *ব্যাখ্যা:* এই অ্যাপে কোনো ব্যানার, ইন্টারস্টিশিয়াল বা থার্ড-পার্টি বিজ্ঞাপন নেই। সম্পূর্ণ বিজ্ঞাপনমুক্ত।
+* **উত্তর:** **Yes, my app contains ads**
+* *ব্যাখ্যা:* অ্যাপটিতে Google AdMob ব্যানার ও ইন্টারস্টিশিয়াল বিজ্ঞাপন অন্তর্ভুক্ত করা হয়েছে।
 
 ---
 
@@ -79,14 +79,24 @@
 
 ---
 
-## ১০. Data Safety Form (গুগল প্লে ডেটা সুরক্ষা ফর্ম)
+## ১০. Advertising ID (অ্যাডভার্টাইজিং আইডি ঘোষণা)
+* **প্রশ্ন ১:** Does your app use advertising ID?
+  * **উত্তর:** **Yes**
+* **প্রশ্ন ২:** Why does your app use advertising ID?
+  * **উত্তর:** নির্বাচন করুন **Advertising or marketing** (Google AdMob SDK ব্যবহারের জন্য)।
+
+---
+
+## ১১. Data Safety Form (গুগল প্লে ডেটা সুরক্ষা ফর্ম)
 * **প্রশ্ন ১:** Does your app collect or share any of the required user data types?
-  * **উত্তর:** **No** (কোনো প্রকার ব্যবহারকারী বা ডিভাইস ডেটা সংগ্রহ বা শেয়ার করা হয় না)।
+  * **উত্তর:** **Yes** (Google AdMob SDK দ্বারা বিজ্ঞাপন পরিবেশনের জন্য সাধারণ প্রযুক্তিগত ডেটা)।
 * **প্রশ্ন ২:** Is all of the user data collected by your app encrypted in transit?
-  * **উত্তর:** **N/A** (যেহেতু কোনো ডেটাই সংগ্রহ করা হয় না)।
+  * **উত্তর:** **Yes**
 * **প্রশ্ন ৩:** Do you provide a way for users to request that their data be deleted?
-  * **উত্তর:** **N/A** (কোনো ডেটা বা ইউজার অ্যাকাউন্ট না থাকায় প্রযোজ্য নয়)।
-* **Advertising ID:** **No** (অ্যাপে কোনো Advertising ID বা ট্র্যাকিং নেই)।
+  * **উত্তর:** **No** (কোনো ব্যবহারকারী অ্যাকাউন্ট না থাকায় প্রযোজ্য নয়)।
+* **Data types collected by Google Mobile Ads SDK:**
+  * **Device or other IDs** -> Device or other IDs (Collected for Advertising/Marketing, Ephemeral, Not linked to user identity).
+  * **App info and performance** -> Diagnostics/Crash logs (Optional/AdMob SDK internal).
 
 ---
 
