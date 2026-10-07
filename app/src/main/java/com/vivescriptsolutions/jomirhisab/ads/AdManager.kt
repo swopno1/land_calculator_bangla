@@ -20,10 +20,12 @@ import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.compose.ui.viewinterop.AndroidView
+import com.google.android.gms.ads.AdError
 import com.google.android.gms.ads.AdListener
 import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.AdSize
 import com.google.android.gms.ads.AdView
+import com.google.android.gms.ads.FullScreenContentCallback
 import com.google.android.gms.ads.LoadAdError
 import com.google.android.gms.ads.MobileAds
 import com.google.android.gms.ads.interstitial.InterstitialAd
@@ -35,13 +37,15 @@ object AdManager {
     private var isInitialized = false
     private var interstitialAd: InterstitialAd? = null
     private var isInterstitialLoading = false
+    private var lastInterstitialShowTime: Long = 0L
+    private const val INTERSTITIAL_COOLDOWN_MS = 45_000L // At least 45 seconds between interstitials to comply with AdMob User Experience policy
 
     fun initialize(context: Context) {
         if (!isInitialized) {
             MobileAds.initialize(context) { initializationStatus ->
                 Log.d(TAG, "MobileAds initialized: $initializationStatus")
                 isInitialized = true
-                loadInterstitial(context)
+                loadInterstitial(context.applicationContext)
             }
         }
     }
@@ -59,7 +63,7 @@ object AdManager {
             adRequest,
             object : InterstitialAdLoadCallback() {
                 override fun onAdLoaded(ad: InterstitialAd) {
-                    Log.d(TAG, "Interstitial loaded")
+                    Log.d(TAG, "Interstitial loaded successfully")
                     interstitialAd = ad
                     isInterstitialLoading = false
                 }
@@ -73,17 +77,41 @@ object AdManager {
         )
     }
 
+    /**
+     * Safely shows an interstitial ad if available and respect policy cooldown.
+     * Always invokes [onAdClosed] when done or if no ad is ready.
+     */
     fun showInterstitial(activity: Activity, onAdClosed: (() -> Unit)? = null) {
+        val now = System.currentTimeMillis()
         val ad = interstitialAd
-        if (ad != null) {
+
+        if (ad != null && (now - lastInterstitialShowTime >= INTERSTITIAL_COOLDOWN_MS)) {
+            ad.fullScreenContentCallback = object : FullScreenContentCallback() {
+                override fun onAdDismissedFullScreenContent() {
+                    Log.d(TAG, "Interstitial dismissed")
+                    interstitialAd = null
+                    lastInterstitialShowTime = System.currentTimeMillis()
+                    loadInterstitial(activity.applicationContext)
+                    onAdClosed?.invoke()
+                }
+
+                override fun onAdFailedToShowFullScreenContent(adError: AdError) {
+                    Log.w(TAG, "Interstitial failed to show: ${adError.message}")
+                    interstitialAd = null
+                    loadInterstitial(activity.applicationContext)
+                    onAdClosed?.invoke()
+                }
+
+                override fun onAdShowedFullScreenContent() {
+                    Log.d(TAG, "Interstitial showed full screen")
+                }
+            }
             ad.show(activity)
-            interstitialAd = null
-            // Preload next interstitial
-            loadInterstitial(activity)
-            onAdClosed?.invoke()
         } else {
-            // Not ready yet, just proceed
-            loadInterstitial(activity)
+            // Not ready or cooldown active; proceed with user action immediately
+            if (ad == null) {
+                loadInterstitial(activity.applicationContext)
+            }
             onAdClosed?.invoke()
         }
     }

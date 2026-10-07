@@ -16,14 +16,14 @@ android {
     applicationId = "com.vivescriptsolutions.jomirhisab"
     minSdk = 24
     targetSdk = 36
-    versionCode = 1
-    versionName = "1.0.0"
+    versionCode = 4
+    versionName = "4.0"
 
     testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
 
-    // AdMob Unit IDs (Defaults to Google official test IDs)
-    buildConfigField("String", "ADMOB_BANNER_AD_UNIT_ID", "\"ca-app-pub-3940256099942544/6300978111\"")
-    buildConfigField("String", "ADMOB_INTERSTITIAL_AD_UNIT_ID", "\"ca-app-pub-3940256099942544/1033173712\"")
+    // Live Google AdMob Ad Unit IDs
+    buildConfigField("String", "ADMOB_BANNER_AD_UNIT_ID", "\"ca-app-pub-5222053984568989/8436765853\"")
+    buildConfigField("String", "ADMOB_INTERSTITIAL_AD_UNIT_ID", "\"ca-app-pub-5222053984568989/8246948185\"")
   }
 
   signingConfigs {

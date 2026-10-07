@@ -1,5 +1,6 @@
 package com.vivescriptsolutions.jomirhisab.ui
 
+import android.app.Activity
 import android.content.ClipData
 import android.content.ClipboardManager
 import android.content.Context
@@ -81,6 +82,7 @@ import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.vivescriptsolutions.jomirhisab.ads.AdManager
 import com.vivescriptsolutions.jomirhisab.ads.AdMobBannerView
 import com.vivescriptsolutions.jomirhisab.engine.LandConversionEngine
 import com.vivescriptsolutions.jomirhisab.model.ConversionResult
@@ -521,7 +523,14 @@ fun JomirHisabScreen() {
                                         results = conversionResults,
                                         isBengali = isBengali
                                     )
-                                    shareText(context, summary, if (isBengali) "জমির হিসাব শেয়ার" else "Share Land Calculation")
+                                    val activity = context as? Activity
+                                    if (activity != null) {
+                                        AdManager.showInterstitial(activity) {
+                                            shareText(context, summary, if (isBengali) "জমির হিসাব শেয়ার" else "Share Land Calculation")
+                                        }
+                                    } else {
+                                        shareText(context, summary, if (isBengali) "জমির হিসাব শেয়ার" else "Share Land Calculation")
+                                    }
                                 },
                                 modifier = Modifier.testTag("share_button")
                             ) {
@@ -786,7 +795,7 @@ fun JomirHisabScreen() {
                         color = MaterialTheme.colorScheme.primary
                     )
                     Text(
-                        text = if (isBengali) "সংস্করণ ১.০.০ • www.vivescriptsolutions.com" else "Version 1.0.0 • www.vivescriptsolutions.com",
+                        text = if (isBengali) "সংস্করণ ১.০.২ • www.vivescriptsolutions.com" else "Version 1.0.2 • www.vivescriptsolutions.com",
                         style = MaterialTheme.typography.labelSmall,
                         color = MaterialTheme.colorScheme.onSurfaceVariant
                     )
