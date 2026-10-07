@@ -152,8 +152,8 @@ fun AdMobBannerView(
     Box(
         modifier = modifier
             .fillMaxWidth()
+            .height(50.dp)
             .background(MaterialTheme.colorScheme.surface)
-            .padding(vertical = 4.dp)
             .testTag("admob_banner_container"),
         contentAlignment = Alignment.Center
     ) {

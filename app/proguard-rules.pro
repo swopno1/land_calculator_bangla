@@ -18,4 +18,12 @@
 
 # If you keep the line number information, uncomment this to
 # hide the original source file name.
-#-renamesourcefileattribute SourceFile
+# For Google Mobile Ads SDK and WebView Javascript Interfaces
+-keepclassmembers class * {
+    @android.webkit.JavascriptInterface <methods>;
+}
+
+-keepattributes JavascriptInterface
+-keepattributes *Annotation*
+-dontwarn com.google.android.gms.ads.**
+-dontwarn androidx.fragment.app.**

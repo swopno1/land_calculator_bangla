@@ -795,7 +795,7 @@ fun JomirHisabScreen() {
                         color = MaterialTheme.colorScheme.primary
                     )
                     Text(
-                        text = if (isBengali) "সংস্করণ ১.০.২ • www.vivescriptsolutions.com" else "Version 1.0.2 • www.vivescriptsolutions.com",
+                        text = if (isBengali) "সংস্করণ ৪.০ • www.vivescriptsolutions.com" else "Version 4.0 • www.vivescriptsolutions.com",
                         style = MaterialTheme.typography.labelSmall,
                         color = MaterialTheme.colorScheme.onSurfaceVariant
                     )
