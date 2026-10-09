@@ -103,7 +103,6 @@ fun JomirHisabScreen() {
     // Input state
     var inputText by rememberSaveable { mutableStateOf("1") }
     var selectedUnit by rememberSaveable { mutableStateOf(LandUnit.DECIMAL) }
-    var unitMenuExpanded by remember { mutableStateOf(false) }
 
     // Bottom sheet state for info & disclaimer
     var showInfoSheet by remember { mutableStateOf(false) }
@@ -344,94 +343,43 @@ fun JomirHisabScreen() {
 
                         Spacer(modifier = Modifier.height(14.dp))
 
-                        // Unit Selector Row
+                        // Unit Selection Section (Unified Fast Quick Select)
                         Row(
                             verticalAlignment = Alignment.CenterVertically,
                             modifier = Modifier.fillMaxWidth()
                         ) {
                             Text(
-                                text = if (isBengali) "একক:" else "Unit:",
-                                style = MaterialTheme.typography.bodyMedium,
-                                fontWeight = FontWeight.Medium,
-                                color = MaterialTheme.colorScheme.onSurfaceVariant
+                                text = if (isBengali) "পরিমাপের একক:" else "Measurement Unit:",
+                                style = MaterialTheme.typography.titleSmall,
+                                fontWeight = FontWeight.Bold,
+                                color = MaterialTheme.colorScheme.onSurface
                             )
-
-                            Spacer(modifier = Modifier.width(8.dp))
-
-                            Box {
-                                OutlinedButton(
-                                    onClick = { unitMenuExpanded = true },
-                                    shape = RoundedCornerShape(12.dp),
-                                    modifier = Modifier.testTag("unit_selector")
-                                ) {
-                                    Text(
-                                        text = selectedUnit.getDisplayName(isBengali),
-                                        fontWeight = FontWeight.Bold,
-                                        style = MaterialTheme.typography.bodyLarge
-                                    )
-                                    Spacer(modifier = Modifier.width(6.dp))
-                                    Icon(
-                                        imageVector = Icons.Default.KeyboardArrowDown,
-                                        contentDescription = "Select Unit"
-                                    )
-                                }
-
-                                DropdownMenu(
-                                    expanded = unitMenuExpanded,
-                                    onDismissRequest = { unitMenuExpanded = false }
-                                ) {
-                                    LandUnit.entries.forEach { unit ->
-                                        DropdownMenuItem(
-                                            text = {
-                                                Column {
-                                                    Text(
-                                                        text = unit.getDisplayName(isBengali),
-                                                        fontWeight = if (unit == selectedUnit) FontWeight.Bold else FontWeight.Normal,
-                                                        color = if (unit == selectedUnit) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.onSurface
-                                                    )
-                                                    Text(
-                                                        text = unit.getDescription(isBengali),
-                                                        style = MaterialTheme.typography.labelSmall,
-                                                        color = MaterialTheme.colorScheme.onSurfaceVariant
-                                                    )
-                                                }
-                                            },
-                                            onClick = {
-                                                selectedUnit = unit
-                                                unitMenuExpanded = false
-                                            }
-                                        )
-                                    }
-                                }
+                            Spacer(modifier = Modifier.width(6.dp))
+                            Surface(
+                                shape = RoundedCornerShape(8.dp),
+                                color = MaterialTheme.colorScheme.primaryContainer,
+                                modifier = Modifier.padding(horizontal = 2.dp)
+                            ) {
+                                Text(
+                                    text = selectedUnit.getDisplayName(isBengali),
+                                    style = MaterialTheme.typography.labelMedium,
+                                    fontWeight = FontWeight.Bold,
+                                    color = MaterialTheme.colorScheme.onPrimaryContainer,
+                                    modifier = Modifier.padding(horizontal = 8.dp, vertical = 2.dp)
+                                )
                             }
                         }
 
-                        Spacer(modifier = Modifier.height(12.dp))
-
-                        // Quick Unit Selection Filter Chips
-                        Text(
-                            text = if (isBengali) "জনপ্রিয় একক নির্বাচন:" else "Quick Select Unit:",
-                            style = MaterialTheme.typography.labelSmall,
-                            color = MaterialTheme.colorScheme.onSurfaceVariant
-                        )
-
-                        Spacer(modifier = Modifier.height(6.dp))
+                        Spacer(modifier = Modifier.height(8.dp))
 
                         FlowRow(
                             horizontalArrangement = Arrangement.spacedBy(8.dp),
-                            verticalArrangement = Arrangement.spacedBy(6.dp),
-                            modifier = Modifier.fillMaxWidth()
+                            verticalArrangement = Arrangement.spacedBy(8.dp),
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .testTag("unit_selector")
                         ) {
-                            val quickUnits = listOf(
-                                LandUnit.DECIMAL,
-                                LandUnit.KATHA,
-                                LandUnit.BIGHA,
-                                LandUnit.ACRE,
-                                LandUnit.SQUARE_FEET,
-                                LandUnit.SQUARE_METER
-                            )
-
-                            quickUnits.forEach { unit ->
+                            LandUnit.entries.forEach { unit ->
                                 val isSelected = unit == selectedUnit
                                 FilterChip(
                                     selected = isSelected,
@@ -443,10 +391,22 @@ fun JomirHisabScreen() {
                                             fontWeight = if (isSelected) FontWeight.Bold else FontWeight.Normal
                                         )
                                     },
+                                    leadingIcon = if (isSelected) {
+                                        {
+                                            Icon(
+                                                imageVector = Icons.Default.Check,
+                                                contentDescription = null,
+                                                modifier = Modifier.size(16.dp)
+                                            )
+                                        }
+                                    } else null,
+                                    shape = RoundedCornerShape(10.dp),
                                     colors = FilterChipDefaults.filterChipColors(
-                                        selectedContainerColor = MaterialTheme.colorScheme.primaryContainer,
-                                        selectedLabelColor = MaterialTheme.colorScheme.onPrimaryContainer
-                                    )
+                                        selectedContainerColor = MaterialTheme.colorScheme.primary,
+                                        selectedLabelColor = MaterialTheme.colorScheme.onPrimary,
+                                        selectedLeadingIconColor = MaterialTheme.colorScheme.onPrimary
+                                    ),
+                                    modifier = Modifier.testTag("unit_chip_${unit.id}")
                                 )
                             }
                         }
@@ -795,7 +755,7 @@ fun JomirHisabScreen() {
                         color = MaterialTheme.colorScheme.primary
                     )
                     Text(
-                        text = if (isBengali) "সংস্করণ ৪.০ • www.vivescriptsolutions.com" else "Version 4.0 • www.vivescriptsolutions.com",
+                        text = if (isBengali) "সংস্করণ ৫.০ • www.vivescriptsolutions.com" else "Version 5.0 • www.vivescriptsolutions.com",
                         style = MaterialTheme.typography.labelSmall,
                         color = MaterialTheme.colorScheme.onSurfaceVariant
                     )
