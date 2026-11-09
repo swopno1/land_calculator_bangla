@@ -107,9 +107,9 @@
   1. `Calculator`
   2. `Tools`
   3. `Productivity`
-* **Contact Details:**
-  * **Email address:** `amirhossain.limon@gmail.com`
-  * **Phone number:** (ঐচ্ছিক)
+* **Contact Details (public on the listing):**
+  * **Email address:** `support@vivescriptsolutions.com` (shared support inbox — never a personal Gmail)
+  * **Phone number:** REMOVE (optional field; a public personal number invites spam)
   * **Website:** `https://www.vivescriptsolutions.com/`
 
 ---

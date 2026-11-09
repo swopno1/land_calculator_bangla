@@ -15,11 +15,11 @@
 
 ### Short Description (সর্বোচ্চ ৮০ অক্ষর):
 `শতাংশ, কাঠা, বিঘা ও একরের সহজ হিসাব। ফ্রি, অফলাইনে চলে।`  
-*(৫৬ অক্ষর — উৎস: `store-assets/play-store-metadata/short-description-bengali.txt`)*
+*(৫৫ অক্ষর — উৎস: `store-assets/play-store-metadata/short-description-bengali.txt`)*
 
 ### English Short Description:
 `Land calculator for BD: Decimal, Katha, Bigha & Acre. Free, works offline.`  
-*(৭৫ অক্ষর — উৎস: `store-assets/play-store-metadata/short-description-english.txt`)*
+*(৭৪ অক্ষর — উৎস: `store-assets/play-store-metadata/short-description-english.txt`)*
 
 ### Primary Category (ক্যাটেগরি):
 - **Category:** Tools (টুলস)  

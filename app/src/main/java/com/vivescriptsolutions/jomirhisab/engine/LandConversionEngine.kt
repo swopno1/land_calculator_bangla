@@ -201,6 +201,7 @@ object LandConversionEngine {
             sb.appendLine("━━━━━━━━━━━━━━━━━━━")
             sb.appendLine("ℹ️ মানদণ্ড: সরকারি প্রমিত হিসাব (১ বিঘা = ২০ কাঠা = ১৪,৪০০ ব.ফুট = ৩৩.০৬ শতক)।")
             sb.appendLine("অফলাইনে হিসাব করুন: জমির হিসাব অ্যাপ")
+            sb.appendLine("📲 অ্যাপটি ডাউনলোড করুন: https://play.google.com/store/apps/details?id=com.vivescriptsolutions.jomirhisab")
             sb.appendLine("নির্মাতা: ViveScript Solutions (https://www.vivescriptsolutions.com/)")
         } else {
             sb.appendLine("📐 Land Calculator BD (জমির হিসাব)")
@@ -213,7 +214,8 @@ object LandConversionEngine {
             }
             sb.appendLine("━━━━━━━━━━━━━━━━━━━")
             sb.appendLine("ℹ️ Standard: 1 Bigha = 20 Katha = 14,400 sq ft = 33.06 Decimals.")
-            sb.appendLine("100% Offline Calculator")
+            sb.appendLine("Offline calculator, free with ads")
+            sb.appendLine("📲 Get the app: https://play.google.com/store/apps/details?id=com.vivescriptsolutions.jomirhisab")
             sb.appendLine("Developer: ViveScript Solutions (https://www.vivescriptsolutions.com/)")
         }
 

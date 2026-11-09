@@ -37,12 +37,12 @@ Maximum limit: **80 characters**. Must communicate core purpose, key units, and 
 
 ### Bengali (Default):
 `শতাংশ, কাঠা, বিঘা ও একরের সহজ হিসাব। ফ্রি, অফলাইনে চলে।`  
-- Character count: **৫৬ অক্ষর** (Well within 80 characters limit)
+- Character count: **৫৫ অক্ষর** (Well within 80 characters limit)
 - Source of truth: `store-assets/play-store-metadata/short-description-bengali.txt`
 
 ### English:
 `Land calculator for BD: Decimal, Katha, Bigha & Acre. Free, works offline.`  
-- Character count: **75 characters** (Compliant)
+- Character count: **74 characters** (Compliant)
 - Source of truth: `store-assets/play-store-metadata/short-description-english.txt`
 
 ---

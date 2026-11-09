@@ -250,9 +250,9 @@ fun JomirHisabScreen() {
                         Spacer(modifier = Modifier.width(8.dp))
                         Text(
                             text = if (isBengali)
-                                "অফলাইন গণক • জমি পরিমাপ ও রূপান্তর"
+                                "অফলাইন হিসাব • জমি পরিমাপ ও রূপান্তর"
                             else
-                                "Offline Engine • Land Measurement & Conversion",
+                                "Offline Calculator • Land Measurement & Conversion",
                             style = MaterialTheme.typography.labelSmall,
                             fontWeight = FontWeight.Medium,
                             color = MaterialTheme.colorScheme.onPrimaryContainer
@@ -476,8 +476,8 @@ fun JomirHisabScreen() {
                                 )
                             }
 
-                            // Share Button
-                            IconButton(
+                            // Share Button (labeled: icon-only is missed by low-literacy users)
+                            TextButton(
                                 onClick = {
                                     val summary = LandConversionEngine.buildShareSummary(
                                         inputValue = parsedValue,
@@ -498,8 +498,13 @@ fun JomirHisabScreen() {
                             ) {
                                 Icon(
                                     imageVector = Icons.Default.Share,
-                                    contentDescription = if (isBengali) "শেয়ার করুন" else "Share",
-                                    tint = MaterialTheme.colorScheme.primary
+                                    contentDescription = null,
+                                    modifier = Modifier.size(16.dp)
+                                )
+                                Spacer(modifier = Modifier.width(4.dp))
+                                Text(
+                                    text = if (isBengali) "শেয়ার" else "Share",
+                                    style = MaterialTheme.typography.labelMedium
                                 )
                             }
                         }
