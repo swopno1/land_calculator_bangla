@@ -14,12 +14,12 @@
 *(২৯ অক্ষর - গুগল প্লে নীতি অনুযায়ী সম্পূর্ণ নিরাপদ ও অনুমোদিত)*
 
 ### Short Description (সর্বোচ্চ ৮০ অক্ষর):
-`শতাংশ, কাঠা, বিঘা ও একরের সহজ ও নির্ভুল হিসাব। ১০০% অফলাইন ও ফ্রি।`  
-*(৬৬ অক্ষর)*
+`শতাংশ, কাঠা, বিঘা ও একরের সহজ হিসাব। ফ্রি, অফলাইনে চলে।`  
+*(৫৬ অক্ষর — উৎস: `store-assets/play-store-metadata/short-description-bengali.txt`)*
 
 ### English Short Description:
-`Land measurement calculator for BD: Decimal, Katha, Bigha & Acre. Offline.`  
-*(৭৩ অক্ষর)*
+`Land calculator for BD: Decimal, Katha, Bigha & Acre. Free, works offline.`  
+*(৭৫ অক্ষর — উৎস: `store-assets/play-store-metadata/short-description-english.txt`)*
 
 ### Primary Category (ক্যাটেগরি):
 - **Category:** Tools (টুলস)  
@@ -28,8 +28,7 @@
 ### Tags:
 - Calculator
 - Tools
-- Utilities
-- Education
+- Productivity
 
 ---
 
@@ -93,13 +92,14 @@ Google Play Store-এ আপলোড করার জন্য একটি ন
 
 ডেভেলপারকে গুগল প্লে কনসোলে লগইন করে ম্যানুয়ালি নিচের ধাপগুলো নিশ্চিত করতে হবে:
 1. **Google Play App Signing:** Play App Signing চালু রাখুন (Google Play সাইনিং কী পরিচালনা করবে)।
-2. **App Content ফর্মগুলো পূরণ করুন:**
+2. **App Content ফর্মগুলো পূরণ করুন** (বিস্তারিত: `store-assets/play-store-metadata/play-console-form-answers.md`):
    - Privacy Policy: `https://www.vivescriptsolutions.com/privacy-jomirhisab`
-   - Ads: "No"
+   - Ads: **"Yes"** (AdMob ব্যানার + ইন্টারস্টিশিয়াল)
+   - Advertising ID: **"Yes"** → Advertising or marketing
    - App Access: "All features are available without restrictions"
    - Content Ratings: Questionnaire পূরণ করুন (Rating: Everyone)
    - Target Audience: 18+ (বা 13+)
-   - Data Safety: "Does not collect or share user data"
+   - Data Safety: **"Yes"** — Device IDs (AdMob SDK, বিজ্ঞাপনের জন্য); encrypted in transit: Yes
    - Government Apps: "No"
 3. **Internal Test / Production Track:**
    - প্রথমে **Internal testing** ট্র্যাকে `app-release.aab` আপলোড করে রিলিজ টেস্ট করুন।

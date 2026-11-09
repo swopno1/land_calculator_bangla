@@ -1,9 +1,10 @@
 # জমির হিসাব (Land Calculator BD)
 
-**স্মার্ট, দ্রুত ও ১০০% অফলাইন বাংলাদেশি জমির পরিমাপ ও রূপান্তর ক্যালকুলেটর**  
+**স্মার্ট, দ্রুত ও অফলাইন-সক্ষম বাংলাদেশি জমির পরিমাপ ও রূপান্তর ক্যালকুলেটর**  
+*(হিসাব ইঞ্জিন সম্পূর্ণ অফলাইন; বিজ্ঞাপন দেখাতে ইন্টারনেট লাগে)*  
 **Developer:** [ViveScript Solutions](https://www.vivescriptsolutions.com/)  
 **Application ID:** `com.vivescriptsolutions.jomirhisab`  
-**Version:** 1.0.0 (Version Code: 1)
+**Version:** 5.0 (Version Code: 5)
 
 ---
 
@@ -15,11 +16,11 @@
 
 ### 🌟 প্রধান বৈশিষ্ট্যসমূহ (Key Features)
 1. **তাত্ক্ষণিক হিসাব (Live Calculation):** কোনো "হিসাব করুন" বোতাম ছাড়াই টাইপ করার সাথে সাথে রিয়েল-টাইমে ফলাফল প্রদর্শিত হয়।
-2. **১০০% অফলাইন (Airplane-Mode Friendly):** কোনো ইন্টারনেট বা সার্ভার সংযোগের প্রয়োজন নেই।
+2. **অফলাইন হিসাব ইঞ্জিন:** গাণিতিক রূপান্তর সম্পূর্ণ ডিভাইসে হয় — ইন্টারনেট ছাড়াও হিসাব চলে। (ব্যানার ও ইন্টারস্টিশিয়াল বিজ্ঞাপন দেখাতে ইন্টারনেট প্রয়োজন।)
 3. **বাংলা ও ইংরেজি সমর্থন:** বাংলা সংখ্যা (১, ২, ৩) এবং ইংরেজি ডিজিট (1, 2, 3) উভয়ই অনায়াসে ইনপুট ও আউটপুট দেওয়া যায়।
 4. **এক-ট্যাপে কপি ও শেয়ার:** এক ক্লিকে একক ফলাফল বা সম্পূর্ণ হিসাবের সারাংশ ক্লিপবোর্ডে কপি বা মেসেজিং অ্যাপে শেয়ার করা যায়।
 5. **প্রমিত সরকারি পরিমাপ মানদণ্ড:** বাংলাদেশ সরকারের ভূমি জরিপ ও ভূমি সংস্কারে সর্বাধিক স্বীকৃত প্রমিত হিসাব অনুসারী।
-6. **কোনো লগইন বা বিজ্ঞাপন নেই:** কোনো অ্যাকাউন্ট খোলার ঝামেলা নেই, শতভাগ বিজ্ঞাপনমুক্ত ও পরিচ্ছন্ন।
+6. **কোনো লগইন নেই, ফ্রি:** কোনো অ্যাকাউন্ট খোলার ঝামেলা নেই। অ্যাপটি ফ্রি — Google AdMob ব্যানার ও শেয়ার-পরবর্তী ইন্টারস্টিশিয়াল বিজ্ঞাপন দ্বারা সমর্থিত (UMP সম্মতি ব্যবস্থাসহ)।
 
 ---
 
@@ -47,7 +48,8 @@
 * **UI Framework:** Jetpack Compose (Material Design 3)
 * **Architecture:** Clean Single-Screen Architecture with Domain-Driven Conversion Engine
 * **Testing:** JUnit4 Unit Tests for all conversion vectors
-* **Zero Runtime Permissions:** `android.permission.INTERNET` অনুপস্থিত, শতভাগ নিরাপদ ও প্রাইভেসি-বান্ধব।
+* **Ads:** Google Mobile Ads (banner + interstitial) with UMP consent gating; debug builds use official Google demo ad units
+* **Permissions:** শুধুমাত্র বিজ্ঞাপনের জন্য `INTERNET`, `ACCESS_NETWORK_STATE` ও `AD_ID` — কোনো বিপজ্জনক (dangerous) পারমিশন নেই।
 
 ---
 
@@ -62,19 +64,25 @@ gradle :app:testDebugUnitTest
 ```bash
 gradle :app:assembleDebug
 ```
-ফাইল অবস্থান: `builds/app-debug.apk`
+ফাইল অবস্থান: `app/build/outputs/apk/debug/app-debug.apk`
 
 ### ৩. Release APK তৈরি করা:
 ```bash
 gradle :app:assembleRelease
 ```
-ফাইল অবস্থান: `builds/app-release.apk`
+ফাইল অবস্থান: `app/build/outputs/apk/release/app-release.apk`
 
 ### ৪. Google Play Release AAB (Android App Bundle) তৈরি করা:
 ```bash
 gradle :app:bundleRelease
 ```
-ফাইল অবস্থান: `builds/app-release.aab`
+ফাইল অবস্থান: `app/build/outputs/bundle/release/app-release.aab`
+
+### ৫. Release সাইনিং সেটআপ (একবার):
+রিলিজ কী (`my-upload-key.jks`, gitignored) প্রজেক্ট রুটে রাখুন এবং পাসওয়ার্ড দিন —
+পরিবেশ ভেরিয়েবল (`STORE_PASSWORD`, `KEY_PASSWORD`, `KEY_ALIAS`, `KEYSTORE_PATH`)
+অথবা gitignored `local.properties`-এ (`storePassword`, `keyPassword`, `keyAlias`)।
+পাসওয়ার্ড কখনোই git-এ কমিট করবেন না।
 
 ---
 
@@ -84,11 +92,12 @@ gradle :app:bundleRelease
 ├── app/                              # Android অ্যাপ্লিকেশন সোর্স কোড
 │   ├── src/main/java/com/vivescriptsolutions/jomirhisab/
 │   │   ├── MainActivity.kt
+│   │   ├── ads/                      # AdMob banner/interstitial + UMP consent
 │   │   ├── engine/LandConversionEngine.kt
 │   │   ├── model/LandUnit.kt
 │   │   └── ui/                       # Compose UI ও থিম
 │   └── src/test/java/                # স্বয়ংক্রিয় ইউনিট টেস্ট
-├── builds/                           # প্রস্তুতকৃত APK ও AAB ফাইল
+├── builds/                           # স্থানীয় বিল্ড আউটপুট (gitignored, কমিট হয় না)
 ├── docs/                             # পূর্ণাঙ্গ প্রজেক্ট ডকুমেন্টেশন
 │   ├── ASO-RESEARCH.md               # গুগল প্লে এসইও ও মেটাডাটা
 │   ├── LAND-MEASUREMENT-STANDARD.md  # পরিমাপের গাণিতিক ও সরকারি মানদণ্ড

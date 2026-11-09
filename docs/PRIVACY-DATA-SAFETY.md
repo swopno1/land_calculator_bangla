@@ -3,24 +3,29 @@
 **Application:** জমির হিসাব (Land Calculator BD)  
 **Package:** `com.vivescriptsolutions.jomirhisab`  
 **Developer:** ViveScript Solutions (https://www.vivescriptsolutions.com/)  
-**Version:** 1.0.0
+**Version:** 5.0
 
 ---
 
 ## ১. সারাংশ (Executive Summary)
 
-"জমির হিসাব" একটি সম্পূর্ণ ক্লায়েন্ট-সাইড এবং **১০০% অফলাইন** ইউটিলিটি অ্যাপ্লিকেশন।
-- **কোনো ডেটা সংগ্রহ করা হয় না (Zero Data Collected)**
-- **কোনো ডেটা তৃতীয় পক্ষের সাথে শেয়ার করা হয় না (Zero Data Shared)**
-- **কোনো ব্যবহারকারী অ্যাকাউন্ট বা লগইনের প্রয়োজন নেই (No Account / Registration)**
-- **কোনো ইন্টারনেট বা সংবেদনশীল পারমিশন নেই (No Internet or Dangerous Permissions)**
+"জমির হিসাব" একটি ক্লায়েন্ট-সাইড ইউটিলিটি অ্যাপ — সব গাণিতিক হিসাব ডিভাইসেই হয়,
+কোনো ব্যবহারকারী অ্যাকাউন্ট বা লগইনের প্রয়োজন নেই।
+- **অ্যাপ নিজে কোনো ব্যক্তিগত ডেটা সংগ্রহ বা শেয়ার করে না** (no accounts, no analytics SDK of our own)
+- **Google AdMob SDK** (ব্যানার + ইন্টারস্টিশিয়াল) বিজ্ঞাপন পরিবেশনের জন্য
+  বিজ্ঞাপন আইডি ও ডায়াগনস্টিক ডেটা সংগ্রহ করে — নিচের Data Safety উত্তর সেই অনুযায়ী
+- **UMP সম্মতি ব্যবস্থা** (EEA/UK) — সম্মতি ছাড়া বিজ্ঞাপন SDK চালু হয় না
+- **কোনো বিপজ্জনক (dangerous) পারমিশন নেই** — শুধু বিজ্ঞাপনের জন্য
+  `INTERNET`, `ACCESS_NETWORK_STATE` ও `AD_ID`
 
 ---
 
 ## ২. পারমিশন পর্যালোচনা (Permissions Review)
 
-অ্যাপ্লিকেশনের `AndroidManifest.xml`-এ কোনো প্রকার সংবেদনশীল বা ডেটা এক্সেস পারমিশন যুক্ত করা হয়নি:
-- ❌ `android.permission.INTERNET` (অনুপস্থিত - অ্যাপ বিমান মোডেও সম্পূর্ণ সচল)
+`AndroidManifest.xml`-এ শুধুমাত্র বিজ্ঞাপনের প্রয়োজনে এই পারমিশনগুলো আছে:
+- ✅ `android.permission.INTERNET` (শুধুমাত্র AdMob বিজ্ঞাপন লোডের জন্য; হিসাব ইঞ্জিন অফলাইনেই চলে)
+- ✅ `ACCESS_NETWORK_STATE` (AdMob SDK-এর জন্য)
+- ✅ `com.google.android.gms.permission.AD_ID` (বিজ্ঞাপন আইডি)
 - ❌ `ACCESS_FINE_LOCATION` / `ACCESS_COARSE_LOCATION` (অনুপস্থিত)
 - ❌ `READ_CONTACTS` / `READ_CALL_LOG` (অনুপস্থিত)
 - ❌ `CAMERA` / `RECORD_AUDIO` (অনুপস্থিত)
@@ -34,52 +39,42 @@ Play Console-এ **App Content -> Data safety** ফর্ম পূরণের 
 
 | প্রশ্ন (Question) | সঠিক উত্তর | মন্তব্য |
 | :--- | :--- | :--- |
-| **Does your app collect or share any of the required user data types?** | **No** | কোনো প্রকার ব্যক্তিগত বা ডিভাইস ডেটা সংগৃহীত হয় না। |
-| **Is all of the user data collected by your app encrypted in transit?** | **N/A** (No data collected) | যেহেতু কোনো ডেটা পাঠানো হয় না। |
-| **Do you provide a way for users to request that their data be deleted?** | **N/A** | যেহেতু কোনো অ্যাকাউন্ট বা ডেটা নেই। |
+| **Does your app collect or share any of the required user data types?** | **Yes** | Google Mobile Ads SDK বিজ্ঞাপনের জন্য ডিভাইস আইডি সংগ্রহ করে। |
+| **Is all of the user data collected by your app encrypted in transit?** | **Yes** | AdMob SDK HTTPS ব্যবহার করে। |
+| **Do you provide a way for users to request that their data be deleted?** | **No** | কোনো ব্যবহারকারী অ্যাকাউন্ট বা সার্ভার-সাইড ডেটা নেই; বিজ্ঞাপন আইডি ব্যবহারকারী ডিভাইস সেটিংস থেকে রিসেট/মুছে ফেলতে পারেন। |
+
+**সংগৃহীত ডেটার ধরন (Collected via Google Mobile Ads SDK):**
+- **Device or other IDs → Device or other IDs** — Collected, for Advertising/Marketing; Ephemeral; required.
+- **App info and performance → Diagnostics/Crash logs** — Collected by the SDK internally (optional).
 
 ---
 
 ## ৪. অন্যান্য Play Console App Content ডিক্লারেশন
 
 1. **Ads (বিজ্ঞাপন):**  
-   - উত্তর: **No, my app does not contain ads** (V1-এ কোনো বিজ্ঞাপন নেই)।
-2. **App Access (অ্যাপ এক্সেস):**  
+   - উত্তর: **Yes, my app contains ads** (AdMob ব্যানার + ইন্টারস্টিশিয়াল)।
+2. **Advertising ID:**  
+   - **Yes** → উদ্দেশ্য: **Advertising or marketing**।
+3. **App Access (অ্যাপ এক্সেস):**  
    - উত্তর: **All functionality is available without special access restrictions** (লগইন বা ক্রেডেনশিয়াল প্রয়োজন নেই)।
-3. **Target Audience and Content:**  
+4. **Target Audience and Content:**  
    - বয়সসীমা: **18 and over** অথবা **13 and over** (সাধারণ ইউটিলিটি টুল)।
-   - Appeal to children: **No**.
-4. **Government Apps:**  
+   - Appeal to children: **No**।
+5. **Government Apps:**  
    - উত্তর: **No, this app is NOT developed by or on behalf of a government entity.**
    - অ্যাপের ভেতরে ও বিবরণে স্পষ্ট উল্লেখ রয়েছে যে এটি কোনো সরকারি বা ভূমি মন্ত্রণালয়ের অফিসিয়াল অ্যাপ্লিকেশন নয়।
-5. **Financial Features:**  
+6. **Financial Features:**  
    - উত্তর: **My app doesn't provide any financial features** (এটি শুধুমাত্র জমি পরিমাপের ক্ষেত্রফল রূপান্তর ক্যালকুলেটর)।
 
 ---
 
-## ৫. গোপনীয়তা নীতি (Privacy Policy Text Template)
+## ৫. গোপনীয়তা নীতি (Privacy Policy)
 
-নিচে ViveScript Solutions-এর ওয়েবসাইটে হোস্ট করার জন্য প্রস্তুতকৃত গোপনীয়তা নীতি দেওয়া হলো:
+হোস্ট করা গোপনীয়তা নীতির উৎস ফাইল: `store-assets/play-store-metadata/privacy-policy.html`
+(প্রকাশিত URL: `https://www.vivescriptsolutions.com/privacy-jomirhisab`)।
 
-```markdown
-# Privacy Policy for জমির হিসাব (Land Calculator BD)
-Last updated: 2026
-
-ViveScript Solutions built the "জমির হিসাব (Land Calculator BD)" app as a Free, Offline tool. This SERVICE is provided by ViveScript Solutions at no cost and is intended for use as is.
-
-### Information Collection and Use
-"জমির হিসাব" does not collect, transmit, store, or share any personal identifiable information or device data. All mathematical conversions and inputs are processed strictly on your local device. 
-
-The application requires no network permissions and operates fully in offline or airplane mode.
-
-### Third-Party Services
-This application does not integrate any third-party analytics, tracking SDKs, or advertising networks.
-
-### Changes to This Privacy Policy
-We may update our Privacy Policy from time to time. You are advised to review this page periodically for any changes.
-
-### Contact Us
-If you have any questions or suggestions about our Privacy Policy, do not hesitate to contact us:
-Website: https://www.vivescriptsolutions.com/
-Email: support@vivescriptsolutions.com
-```
+নীতিতে অবশ্যই এই তিনটি বিষয় থাকতে হবে (বর্তমান HTML-এ আছে):
+1. হিসাব ডিভাইসে হয়, আমরা নিজে কোনো ব্যক্তিগত তথ্য সংগ্রহ করি না;
+2. Google AdMob বিজ্ঞাপন আইডি ও ডায়াগনস্টিক ডেটা ব্যবহার করতে পারে
+   ([Google Advertising Privacy Policy](https://policies.google.com/technologies/ads));
+3. `INTERNET` / `ACCESS_NETWORK_STATE` / `AD_ID` পারমিশন শুধু বিজ্ঞাপনের জন্য।

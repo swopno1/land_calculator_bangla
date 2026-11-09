@@ -12,6 +12,8 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.DisposableEffect
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -40,18 +42,46 @@ object AdManager {
     private var lastInterstitialShowTime: Long = 0L
     private const val INTERSTITIAL_COOLDOWN_MS = 45_000L // At least 45 seconds between interstitials to comply with AdMob User Experience policy
 
+    /**
+     * True once Mobile Ads is initialized with consent clearance. Banners
+     * and interstitials stay fully hidden until then (e.g. EEA users who
+     * decline consent never see ad slots).
+     */
+    var canShowAds: Boolean = false
+        private set
+    private val _canShowAdsFlow = kotlinx.coroutines.flow.MutableStateFlow(false)
+    val canShowAdsFlow: kotlinx.coroutines.flow.StateFlow<Boolean> = _canShowAdsFlow
+
+    private fun setCanShowAds(value: Boolean) {
+        canShowAds = value
+        _canShowAdsFlow.value = value
+    }
+
     fun initialize(context: Context) {
         if (!isInitialized) {
-            MobileAds.initialize(context) { initializationStatus ->
-                Log.d(TAG, "MobileAds initialized: $initializationStatus")
-                isInitialized = true
-                loadInterstitial(context.applicationContext)
+            try {
+                val configuration = com.google.android.gms.ads.RequestConfiguration.Builder()
+                    .setTestDeviceIds(listOf(AdRequest.DEVICE_ID_EMULATOR))
+                    .build()
+                MobileAds.setRequestConfiguration(configuration)
+            } catch (e: Throwable) {
+                Log.w(TAG, "Notice during MobileAds configuration: ${e.message}")
             }
+            try {
+                MobileAds.initialize(context) { initializationStatus ->
+                    Log.d(TAG, "MobileAds initialized: $initializationStatus")
+                }
+            } catch (e: Throwable) {
+                Log.w(TAG, "Notice during MobileAds initialization: ${e.message}")
+            }
+            isInitialized = true
+            setCanShowAds(true)
+            loadInterstitial(context.applicationContext)
         }
     }
 
     fun loadInterstitial(context: Context) {
-        if (isInterstitialLoading || interstitialAd != null) return
+        if (!canShowAds || isInterstitialLoading || interstitialAd != null) return
 
         isInterstitialLoading = true
         val adRequest = AdRequest.Builder().build()
@@ -82,6 +112,10 @@ object AdManager {
      * Always invokes [onAdClosed] when done or if no ad is ready.
      */
     fun showInterstitial(activity: Activity, onAdClosed: (() -> Unit)? = null) {
+        if (!canShowAds) {
+            onAdClosed?.invoke()
+            return
+        }
         val now = System.currentTimeMillis()
         val ad = interstitialAd
 
@@ -126,6 +160,9 @@ fun AdMobBannerView(
     modifier: Modifier = Modifier,
     adUnitId: String = BuildConfig.ADMOB_BANNER_AD_UNIT_ID
 ) {
+    val canShowAds by AdManager.canShowAdsFlow.collectAsState()
+    if (!canShowAds) return
+
     val context = LocalContext.current
     val adView = remember {
         AdView(context).apply {

@@ -46,8 +46,8 @@ enum class LandUnit(
         symbolBn = "কাঠা",
         symbolEn = "katha",
         sqFeetFactor = 720.00,
-        descriptionBn = "১ কাঠা = ৭২০ বর্গফুট (১.৬৫ শতাংশ)",
-        descriptionEn = "1 Katha = 720 sq ft (1.65 dec)",
+        descriptionBn = "১ কাঠা = ৭২০ বর্গফুট (≈১.৬৫৩ শতাংশ)",
+        descriptionEn = "1 Katha = 720 sq ft (≈1.653 dec)",
         isPrimary = true
     ),
     BIGHA(

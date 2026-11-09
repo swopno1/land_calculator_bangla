@@ -8,12 +8,12 @@ import android.content.Intent
 import android.widget.Toast
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.foundation.background
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.ExperimentalLayoutApi
 import androidx.compose.foundation.layout.FlowRow
+import androidx.compose.foundation.layout.defaultMinSize
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
@@ -82,6 +82,7 @@ import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.vivescriptsolutions.jomirhisab.BuildConfig
 import com.vivescriptsolutions.jomirhisab.ads.AdManager
 import com.vivescriptsolutions.jomirhisab.ads.AdMobBannerView
 import com.vivescriptsolutions.jomirhisab.engine.LandConversionEngine
@@ -162,20 +163,21 @@ fun JomirHisabScreen() {
                     }
                 },
                 actions = {
-                    // Language Switcher Chip
+                    // Language Switcher Chip (48dp target: easy to tap, hard to hit by accident)
                     Surface(
+                        onClick = {
+                            isBengali = !isBengali
+                            showBengaliNumerals = isBengali
+                        },
                         shape = RoundedCornerShape(16.dp),
                         color = MaterialTheme.colorScheme.secondaryContainer,
                         modifier = Modifier
                             .testTag("lang_toggle_button")
-                            .clickable {
-                                isBengali = !isBengali
-                                showBengaliNumerals = isBengali
-                            }
+                            .defaultMinSize(minWidth = 72.dp, minHeight = 48.dp)
                     ) {
                         Row(
                             verticalAlignment = Alignment.CenterVertically,
-                            modifier = Modifier.padding(horizontal = 10.dp, vertical = 6.dp)
+                            modifier = Modifier.padding(horizontal = 12.dp, vertical = 10.dp)
                         ) {
                             Icon(
                                 imageVector = Icons.Default.Language,
@@ -686,7 +688,7 @@ fun JomirHisabScreen() {
                         val formulaItems = if (isBengali) {
                             listOf(
                                 "১ শতাংশ / শতক = ৪৩৫.৬০ বর্গফুট (৪৮.৪০ বর্গগজ)",
-                                "১ কাঠা = ৭২০ বর্গফুট (১.৬৫ শতাংশ / শতক)",
+                                "১ কাঠা = ৭২০ বর্গফুট (≈১.৬৫৩ শতাংশ)",
                                 "১ বিঘা = ২০ কাঠা = ১৪,৪০০ বর্গফুট (৩৩.০৬ শতক)",
                                 "১ একর = ১০০ শতাংশ = ৩.০২৫ বিঘা = ৪৩,৫৬০ বর্গফুট",
                                 "১ হেক্টর = ১০,০০০ বর্গমিটার = ২.৪৭১ একর",
@@ -696,7 +698,7 @@ fun JomirHisabScreen() {
                         } else {
                             listOf(
                                 "1 Decimal / Shotok = 435.60 sq ft (48.40 sq yards)",
-                                "1 Katha = 720.00 sq ft (1.65 Decimals)",
+                                "1 Katha = 720.00 sq ft (≈1.653 Decimals)",
                                 "1 Bigha = 20 Katha = 14,400 sq ft (33.06 Decimals)",
                                 "1 Acre = 100 Decimals = 3.025 Bigha = 43,560 sq ft",
                                 "1 Hectare = 10,000 sq meters = 2.471 Acres",
@@ -755,7 +757,7 @@ fun JomirHisabScreen() {
                         color = MaterialTheme.colorScheme.primary
                     )
                     Text(
-                        text = if (isBengali) "সংস্করণ ৫.০ • www.vivescriptsolutions.com" else "Version 5.0 • www.vivescriptsolutions.com",
+                        text = if (isBengali) "সংস্করণ ${BuildConfig.VERSION_NAME} • www.vivescriptsolutions.com" else "Version ${BuildConfig.VERSION_NAME} • www.vivescriptsolutions.com",
                         style = MaterialTheme.typography.labelSmall,
                         color = MaterialTheme.colorScheme.onSurfaceVariant
                     )
@@ -812,9 +814,7 @@ fun JomirHisabScreen() {
                         "১ একর = ১০০ শতাংশ = ৩ বিঘা ৮ ছটাক (৩.০২৫ বিঘা) = ৬০.৫ কাঠা = ৪৩,৫৬০ বর্গফুট",
                         "১ হেক্টর = ১০,০০০ বর্গমিটার = ২.৪৭১ একর = ২৪৭.১০ শতাংশ",
                         "১ ছটাক = ৪৫ বর্গফুট = ৫ বর্গগজ = ২০ গণ্ডা",
-                        "১ গণ্ডা = ২.২৫ বর্গফুট = ৪ কড়া",
-                        "১ কড়া = ০.৭৫ বর্গফুট = ৩ ক্রান্তি",
-                        "১ ক্রান্তি = ০.২৫ বর্গফুট = ২০ তিল",
+                        "১ গণ্ডা = ২.২৫ বর্গফুট (ঐতিহ্যগতভাবে ৪ কড়া)",
                         "১ বর্গমিটার = ১০.৭৬৪ বর্গফুট = ১.১৯৬ বর্গগজ"
                     )
                 } else {
@@ -825,9 +825,7 @@ fun JomirHisabScreen() {
                         "1 Acre = 100 Decimals = 3.025 Bigha = 60.5 Katha = 43,560 sq ft",
                         "1 Hectare = 10,000 sq m = 2.471 Acres = 247.10 Decimals",
                         "1 Chattak = 45 sq ft = 5 sq yd = 20 Ganda",
-                        "1 Ganda = 2.25 sq ft = 4 Kora",
-                        "1 Kora = 0.75 sq ft = 3 Kranti",
-                        "1 Kranti = 0.25 sq ft = 20 Til",
+                        "1 Ganda = 2.25 sq ft (traditionally 4 Kora)",
                         "1 Sq Meter = 10.764 sq ft = 1.196 sq yd"
                     )
                 }
