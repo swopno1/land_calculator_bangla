@@ -4,6 +4,7 @@
 *(হিসাব ইঞ্জিন সম্পূর্ণ অফলাইন; বিজ্ঞাপন দেখাতে ইন্টারনেট লাগে)*  
 **Developer:** [ViveScript Solutions](https://www.vivescriptsolutions.com/en/apps/jomirhisab)  
 **Application ID:** `com.vivescriptsolutions.jomirhisab`  
+**Google Play:** [জমির হিসাব – Land Calculator](https://play.google.com/store/apps/details?id=com.vivescriptsolutions.jomirhisab)  
 **Version:** 5.0 (Version Code: 5)
 
 ---
