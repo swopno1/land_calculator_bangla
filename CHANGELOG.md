@@ -11,6 +11,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 - Play compliance doc set: `DESIGN_ASSETS.md`, `PLAY_STORE_METADATA.md`, `PLAY_STORE_DATA_SAFETY.md`, `GOOGLE_PLAY_DECLARATIONS.md`, `EU_TRADE_POLICY_COMPLIANCE.md`, `PRIVACY_POLICY.md`, `TERMS_OF_SERVICE.md`, `CHANGELOG.md`.
+- **Ad Privacy Options entry point:** info bottom sheet now exposes the UMP privacy-options form (EN/BN) when required, covering GDPR re-consent and US state opt-out revision.
 
 ---
 
@@ -23,7 +24,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - **Strict Lint Gate:** `checkReleaseBuilds = true`, `abortOnError = true`.
 
 ### Changed
-- **Dependency Upgrades:** AGP 9.5.1, Kotlin 2.4.21, Compose BOM 2026.09.00, play-services-ads 25.5.0, UMP 4.0.0, activity-compose 1.13.0, coroutines 1.11.0, compileSdk 37.
+- **Dependency Upgrades:** AGP 9.5.1, Kotlin 2.4.21, Compose BOM 2026.09.00, play-services-ads 25.5.0, UMP 3.1.0, activity-compose 1.13.0, coroutines 1.11.0, compileSdk 37.
 - **Dependency Pruning:** Removed unused Room, Coil, Fragment, Firebase BOM, KSP, google-services, secrets plugin, Robolectric, and instrumented-test libraries.
 - **Per-Variant Ad Units:** Debug builds use Google demo units; release builds use production units (`.../8436765853` banner, `.../8246948185` interstitial).
 - **Release Signing:** Keystore passwords via environment or gitignored `local.properties` only; fail-fast errors on release builds.

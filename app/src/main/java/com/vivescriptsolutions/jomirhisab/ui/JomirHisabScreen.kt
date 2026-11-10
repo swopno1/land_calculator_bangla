@@ -85,6 +85,7 @@ import androidx.compose.ui.unit.sp
 import com.vivescriptsolutions.jomirhisab.BuildConfig
 import com.vivescriptsolutions.jomirhisab.ads.AdManager
 import com.vivescriptsolutions.jomirhisab.ads.AdMobBannerView
+import com.vivescriptsolutions.jomirhisab.ads.ConsentManager
 import com.vivescriptsolutions.jomirhisab.engine.LandConversionEngine
 import com.vivescriptsolutions.jomirhisab.model.ConversionResult
 import com.vivescriptsolutions.jomirhisab.model.LandUnit
@@ -885,6 +886,21 @@ fun JomirHisabScreen() {
                 )
 
                 Spacer(modifier = Modifier.height(20.dp))
+
+                val privacyActivity = context as? Activity
+                if (privacyActivity != null && ConsentManager.isPrivacyOptionsRequired(context)) {
+                    OutlinedButton(
+                        onClick = { ConsentManager.showPrivacyOptions(privacyActivity) },
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .testTag("ad_privacy_options_button"),
+                        shape = RoundedCornerShape(12.dp)
+                    ) {
+                        Text(if (isBengali) "বিজ্ঞাপন গোপনীয়তা সেটিংস" else "Ad Privacy Options")
+                    }
+
+                    Spacer(modifier = Modifier.height(8.dp))
+                }
 
                 Button(
                     onClick = { showInfoSheet = false },

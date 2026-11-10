@@ -38,7 +38,7 @@
 **Question:** Does your app contain advertising?  
 **Selection:**  
 `Yes, my app contains ads`  
-**Explanation for reviewers:** *"Google AdMob banner pinned to the bottom of the screen plus one interstitial after the user taps Share (45-second cooldown). Ads are gated by Google UMP consent — users who decline see no ads. Debug builds use Google demo units; release builds use production units ca-app-pub-5222053984568989/8436765853 (banner) and ca-app-pub-5222053984568989/8246948185 (interstitial)."*
+**Explanation for reviewers:** *"Google AdMob banner pinned to the bottom of the screen plus one interstitial after the user taps Share (45-second cooldown). Ads are gated by Google UMP consent (UMP SDK 3.1.0, GPP-capable) — EU users who decline see no ads; US opt-out users receive restricted processing automatically. Both the European regulations and US state regulations AdMob messages are served through the same flow, and the info sheet exposes an Ad Privacy Options entry point (EN/BN) for revisiting choices. Debug builds use Google demo units; release builds use production units ca-app-pub-5222053984568989/8436765853 (banner) and ca-app-pub-5222053984568989/8246948185 (interstitial)."*
 
 ---
 

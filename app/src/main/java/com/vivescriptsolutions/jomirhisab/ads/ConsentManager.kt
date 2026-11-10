@@ -1,8 +1,10 @@
 package com.vivescriptsolutions.jomirhisab.ads
 
 import android.app.Activity
+import android.content.Context
 import android.util.Log
 import com.google.android.ump.ConsentDebugSettings
+import com.google.android.ump.ConsentInformation
 import com.google.android.ump.ConsentRequestParameters
 import com.google.android.ump.UserMessagingPlatform
 import com.vivescriptsolutions.jomirhisab.BuildConfig
@@ -10,7 +12,8 @@ import com.vivescriptsolutions.jomirhisab.BuildConfig
 /**
  * Google User Messaging Platform (UMP) consent flow, required before
  * initializing Mobile Ads for users in regions with consent requirements
- * (EEA/UK). Outside those regions the form never appears and [onComplete]
+ * (EEA/UK/Switzerland, US regulated states). Outside those regions the form
+ * never appears and [onComplete]
  * fires immediately with the current [canRequestAds] value.
  *
  * Debug builds force EEA geography so the form can be verified on an
@@ -72,5 +75,28 @@ object ConsentManager {
                 onComplete(BuildConfig.DEBUG || consentInfo.canRequestAds())
             }
         )
+    }
+
+    /**
+     * Checks if a privacy options form (e.g. US State regulations opt-out or GDPR re-consent)
+     * is required to be available to the user.
+     */
+    fun isPrivacyOptionsRequired(context: Context): Boolean {
+        val consentInfo = UserMessagingPlatform.getConsentInformation(context)
+        return consentInfo.privacyOptionsRequirementStatus ==
+            ConsentInformation.PrivacyOptionsRequirementStatus.REQUIRED
+    }
+
+    /**
+     * Opens the Privacy Options form so users can review or change their privacy choices
+     * (e.g. US State regulations opt-out, GDPR consent revision).
+     */
+    fun showPrivacyOptions(activity: Activity, onDismiss: () -> Unit = {}) {
+        UserMessagingPlatform.showPrivacyOptionsForm(activity) { formError ->
+            if (formError != null) {
+                Log.w(TAG, "Error displaying privacy options form: ${formError.message}")
+            }
+            onDismiss()
+        }
     }
 }
