@@ -9,7 +9,7 @@
 **Developer:** ViveScript Solutions  
 **Support Email:** support@vivescriptsolutions.com  
 **Console Contact Email:** amirhossain.limon@gmail.com  
-**Website:** https://www.vivescriptsolutions.com/
+**Website:** https://www.vivescriptsolutions.com/en/apps/jomirhisab
 
 ---
 
@@ -60,7 +60,7 @@ Land calculator for BD: Decimal, Katha, Bigha & Acre. Free, works offline.
 
 ডেভেলপার তথ্য:
 ViveScript Solutions
-ওয়েবসাইট: https://www.vivescriptsolutions.com/
+ওয়েবসাইট: https://www.vivescriptsolutions.com/en/apps/jomirhisab
 ইমেইল: support@vivescriptsolutions.com
 সহযোগিতা ও পরামর্শের জন্য যোগাযোগ করুন।
 ```
@@ -93,7 +93,7 @@ Whether you are buying, selling, surveying, or dividing family property, calcula
 Based on Bangladesh government official land surveying standards. For legal boundary disputes or property registration, always verify records with official government land survey offices.
 
 Developer: ViveScript Solutions
-Website: https://www.vivescriptsolutions.com/
+Website: https://www.vivescriptsolutions.com/en/apps/jomirhisab
 Email: support@vivescriptsolutions.com
 ```
 

@@ -1,7 +1,7 @@
 # Land Measurement Standard for Bangladesh (বাংলাদেশের জমির পরিমাপ ও রূপান্তর মানদণ্ড)
 
 **Application:** জমির হিসাব (Land Calculator BD)  
-**Developer:** ViveScript Solutions (https://www.vivescriptsolutions.com/)  
+**Developer:** ViveScript Solutions (https://www.vivescriptsolutions.com/en/apps/jomirhisab)  
 **Base Canonical Unit:** বর্গফুট (Square Feet)  
 **Standard Classification:** সরকারি প্রমিত মান (Official Bangladesh Survey Standard)
 

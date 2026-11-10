@@ -2,7 +2,7 @@
 
 **App Name:** জমির হিসাব (Land Calculator BD)  
 **Package Name:** `com.vivescriptsolutions.jomirhisab`  
-**Publisher:** ViveScript Solutions (https://www.vivescriptsolutions.com/)  
+**Publisher:** ViveScript Solutions (https://www.vivescriptsolutions.com/en/apps/jomirhisab)  
 **Primary Market:** Bangladesh (Bengali-first)
 
 ---

@@ -3,8 +3,8 @@
 **Effective Date:** November 2026  
 **Developer / Licensor:** ViveScript Solutions  
 **Application:** জমির হিসাব – Land Calculator (`com.vivescriptsolutions.jomirhisab`)  
-**Website:** https://www.vivescriptsolutions.com/  
-**Live version of these terms:** https://www.vivescriptsolutions.com/terms-jomirhisab  
+**Website:** https://www.vivescriptsolutions.com/en/apps/jomirhisab  
+**Live version of these terms:** https://www.vivescriptsolutions.com/en/apps/jomirhisab/terms  
 **Contact Email:** support@vivescriptsolutions.com
 
 ---
@@ -71,5 +71,5 @@ UNDER NO CIRCUMSTANCES SHALL VIVESCRIPT SOLUTIONS BE LIABLE FOR ANY DIRECT, INDI
 These Terms are governed by the laws of the State of Delaware, United States.
 
 **ViveScript Solutions**  
-Website: https://www.vivescriptsolutions.com/  
+Website: https://www.vivescriptsolutions.com/en/apps/jomirhisab  
 Contact: support@vivescriptsolutions.com

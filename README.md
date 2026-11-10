@@ -2,7 +2,7 @@
 
 **স্মার্ট, দ্রুত ও অফলাইন-সক্ষম বাংলাদেশি জমির পরিমাপ ও রূপান্তর ক্যালকুলেটর**  
 *(হিসাব ইঞ্জিন সম্পূর্ণ অফলাইন; বিজ্ঞাপন দেখাতে ইন্টারনেট লাগে)*  
-**Developer:** [ViveScript Solutions](https://www.vivescriptsolutions.com/)  
+**Developer:** [ViveScript Solutions](https://www.vivescriptsolutions.com/en/apps/jomirhisab)  
 **Application ID:** `com.vivescriptsolutions.jomirhisab`  
 **Version:** 5.0 (Version Code: 5)
 
@@ -120,5 +120,5 @@ gradle :app:bundleRelease
 ## 🏢 যোগাযোগ ও সাপোর্ট
 
 **ViveScript Solutions**  
-ওয়েবসাইট: [https://www.vivescriptsolutions.com/](https://www.vivescriptsolutions.com/)  
+ওয়েবসাইট: [https://www.vivescriptsolutions.com/en/apps/jomirhisab](https://www.vivescriptsolutions.com/en/apps/jomirhisab)  
 ইমেইল: support@vivescriptsolutions.com

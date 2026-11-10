@@ -4,8 +4,8 @@
 **Package ID:** `com.vivescriptsolutions.jomirhisab`  
 **Publisher:** ViveScript Solutions  
 **Contact Email:** `amirhossain.limon@gmail.com`  
-**Website:** `https://www.vivescriptsolutions.com/`  
-**Privacy Policy URL:** `https://www.vivescriptsolutions.com/privacy-jomirhisab`  
+**Website:** `https://www.vivescriptsolutions.com/en/apps/jomirhisab`  
+**Privacy Policy URL:** `https://www.vivescriptsolutions.com/en/apps/jomirhisab/privacy`  
 **Release Artifact:** `builds/app-release.aab` (Signed Android App Bundle)
 
 ---
@@ -110,7 +110,7 @@
 * **Contact Details (public on the listing):**
   * **Email address:** `support@vivescriptsolutions.com` (shared support inbox — never a personal Gmail)
   * **Phone number:** REMOVE (optional field; a public personal number invites spam)
-  * **Website:** `https://www.vivescriptsolutions.com/`
+  * **Website:** `https://www.vivescriptsolutions.com/en/apps/jomirhisab`
 
 ---
 

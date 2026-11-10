@@ -3,8 +3,8 @@
 **Effective Date:** November 2026  
 **Developer:** ViveScript Solutions  
 **Application:** জমির হিসাব – Land Calculator (`com.vivescriptsolutions.jomirhisab`)  
-**Website:** https://www.vivescriptsolutions.com/  
-**Live version of this policy:** https://www.vivescriptsolutions.com/privacy-jomirhisab  
+**Website:** https://www.vivescriptsolutions.com/en/apps/jomirhisab  
+**Live version of this policy:** https://www.vivescriptsolutions.com/en/apps/jomirhisab/privacy  
 **Contact Email:** support@vivescriptsolutions.com
 
 ---
@@ -70,5 +70,5 @@ We ourselves collect no personal information from any user, including children u
 If you have questions regarding this Privacy Policy, please contact:
 
 **ViveScript Solutions**  
-Website: https://www.vivescriptsolutions.com/  
+Website: https://www.vivescriptsolutions.com/en/apps/jomirhisab  
 Email: support@vivescriptsolutions.com

@@ -2,7 +2,7 @@
 
 **Application:** জমির হিসাব (Land Calculator BD)  
 **Package:** `com.vivescriptsolutions.jomirhisab`  
-**Developer:** ViveScript Solutions (https://www.vivescriptsolutions.com/)  
+**Developer:** ViveScript Solutions (https://www.vivescriptsolutions.com/en/apps/jomirhisab)  
 **Version:** 5.0
 
 ---
@@ -71,7 +71,7 @@ Play Console-এ **App Content -> Data safety** ফর্ম পূরণের 
 ## ৫. গোপনীয়তা নীতি (Privacy Policy)
 
 হোস্ট করা গোপনীয়তা নীতির উৎস ফাইল: `store-assets/play-store-metadata/privacy-policy.html`
-(প্রকাশিত URL: `https://www.vivescriptsolutions.com/privacy-jomirhisab`)।
+(প্রকাশিত URL: `https://www.vivescriptsolutions.com/en/apps/jomirhisab/privacy`)।
 
 নীতিতে অবশ্যই এই তিনটি বিষয় থাকতে হবে (বর্তমান HTML-এ আছে):
 1. হিসাব ডিভাইসে হয়, আমরা নিজে কোনো ব্যক্তিগত তথ্য সংগ্রহ করি না;

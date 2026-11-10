@@ -32,7 +32,7 @@ Under EU law (Directive 2005/29/EC), any entity acting for purposes relating to 
 | **Phone Number** | Verified company phone number (with international dial code) |
 | **Physical Address** | Registered business address of ViveScript Solutions |
 | **Commercial Register Number / DUNS** | Your state registration number or D-U-N-S number |
-| **Website URL** | `https://www.vivescriptsolutions.com/` |
+| **Website URL** | `https://www.vivescriptsolutions.com/en/apps/jomirhisab` |
 
 > **Note for EU Consumers:** When declared as a Trader, Google Play displays your verified business name, address, email, and phone number publicly on the জমির হিসাব store listing for users browsing from the European Economic Area.
 
@@ -82,8 +82,8 @@ To comply with EU digital consumer protection directives:
 ## 4. Play Console Review Checklist for EU Distribution
 
 - [x] Trader status configured under **Policy and programs > Trader status** (Yes, trader — ad-monetized).
-- [x] Privacy Policy accessible via public HTTPS link (`https://www.vivescriptsolutions.com/privacy-jomirhisab`).
-- [x] Terms of Service accessible via public HTTPS link (`https://www.vivescriptsolutions.com/terms-jomirhisab`).
+- [x] Privacy Policy accessible via public HTTPS link (`https://www.vivescriptsolutions.com/en/apps/jomirhisab/privacy`).
+- [x] Terms of Service accessible via public HTTPS link (`https://www.vivescriptsolutions.com/en/apps/jomirhisab/terms`).
 - [x] Data Safety questionnaire answered (AdMob SDK Device IDs + Diagnostics; encrypted in transit).
 - [x] Ads + Advertising ID declarations answered Yes (Advertising or marketing).
 - [x] Target audience declared as 18+ (or 13+) with no unintentional appeal to young children.

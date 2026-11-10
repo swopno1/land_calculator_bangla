@@ -2,7 +2,7 @@
 
 **App Name:** জমির হিসাব (Land Calculator BD)  
 **Package Name:** `com.vivescriptsolutions.jomirhisab`  
-**Developer / Publisher:** ViveScript Solutions (https://www.vivescriptsolutions.com/)  
+**Developer / Publisher:** ViveScript Solutions (https://www.vivescriptsolutions.com/en/apps/jomirhisab)  
 **Target Category:** **Tools** (টুলস)
 
 ---
@@ -93,7 +93,7 @@ Google Play Store-এ আপলোড করার জন্য একটি ন
 ডেভেলপারকে গুগল প্লে কনসোলে লগইন করে ম্যানুয়ালি নিচের ধাপগুলো নিশ্চিত করতে হবে:
 1. **Google Play App Signing:** Play App Signing চালু রাখুন (Google Play সাইনিং কী পরিচালনা করবে)।
 2. **App Content ফর্মগুলো পূরণ করুন** (বিস্তারিত: `store-assets/play-store-metadata/play-console-form-answers.md`):
-   - Privacy Policy: `https://www.vivescriptsolutions.com/privacy-jomirhisab`
+   - Privacy Policy: `https://www.vivescriptsolutions.com/en/apps/jomirhisab/privacy`
    - Ads: **"Yes"** (AdMob ব্যানার + ইন্টারস্টিশিয়াল)
    - Advertising ID: **"Yes"** → Advertising or marketing
    - App Access: "All features are available without restrictions"

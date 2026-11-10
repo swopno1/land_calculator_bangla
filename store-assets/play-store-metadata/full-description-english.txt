@@ -24,5 +24,5 @@ Whether you are buying, selling, surveying, or dividing family property, calcula
 Based on Bangladesh government official land surveying standards. For legal boundary disputes or property registration, always verify records with official government land survey offices.
 
 Developer: ViveScript Solutions
-Website: https://www.vivescriptsolutions.com/
+Website: https://www.vivescriptsolutions.com/en/apps/jomirhisab
 Email: support@vivescriptsolutions.com

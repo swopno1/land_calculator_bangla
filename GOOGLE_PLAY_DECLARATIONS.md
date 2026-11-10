@@ -6,8 +6,8 @@
 **Developer:** ViveScript Solutions  
 **Support Email:** support@vivescriptsolutions.com  
 **Console Contact Email:** amirhossain.limon@gmail.com  
-**Privacy Policy URL:** https://www.vivescriptsolutions.com/privacy-jomirhisab  
-**Terms of Service URL:** https://www.vivescriptsolutions.com/terms-jomirhisab
+**Privacy Policy URL:** https://www.vivescriptsolutions.com/en/apps/jomirhisab/privacy  
+**Terms of Service URL:** https://www.vivescriptsolutions.com/en/apps/jomirhisab/terms
 
 ---
 
@@ -152,6 +152,6 @@ Google Play requires all developers distributing in the European Economic Area (
 - **Recommended Selection:** **"Yes, I am a trader"** (for ViveScript Solutions)  
   - Legal Name: `ViveScript Solutions`
   - Email: `support@vivescriptsolutions.com`
-  - Website: `https://www.vivescriptsolutions.com/`
+  - Website: `https://www.vivescriptsolutions.com/en/apps/jomirhisab`
   - Address: Registered corporate address of ViveScript Solutions.
 - See full legal analysis and GDPR user deletion audit in `EU_TRADE_POLICY_COMPLIANCE.md`.
