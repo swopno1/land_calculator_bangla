@@ -7,6 +7,7 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.navigationBarsPadding
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
@@ -189,14 +190,16 @@ fun AdMobBannerView(
     Box(
         modifier = modifier
             .fillMaxWidth()
-            .height(50.dp)
             .background(MaterialTheme.colorScheme.surface)
+            .navigationBarsPadding()
             .testTag("admob_banner_container"),
         contentAlignment = Alignment.Center
     ) {
         AndroidView(
             factory = { adView },
-            modifier = Modifier.fillMaxWidth()
+            modifier = Modifier
+                .fillMaxWidth()
+                .height(50.dp)
         )
     }
 }

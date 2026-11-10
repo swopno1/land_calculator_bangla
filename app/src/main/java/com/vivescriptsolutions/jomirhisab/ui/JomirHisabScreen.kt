@@ -155,9 +155,10 @@ fun JomirHisabScreen() {
                                 color = MaterialTheme.colorScheme.onSurface
                             )
                             Text(
-                                text = if (isBengali) "বাংলাদেশের সহজ জমির পরিমাপ" else "Bangladesh Land Measurement",
+                                text = if (isBengali) "সহজ জমির পরিমাপ" else "Simple Land Measurement",
                                 style = MaterialTheme.typography.labelSmall,
-                                color = MaterialTheme.colorScheme.onSurfaceVariant
+                                color = MaterialTheme.colorScheme.onSurfaceVariant,
+                                maxLines = 1
                             )
                         }
                     }
